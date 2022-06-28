@@ -7,8 +7,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          iFrame app.
+          iFrame app with Content-Security-Policy: frame-ancestors
         </p>
+        <iframe src="https://iframe-demo-server.herokuapp.com" />
       </header>
     </div>
   );
