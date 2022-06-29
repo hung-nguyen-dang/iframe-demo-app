@@ -19,17 +19,22 @@ function App() {
         <div className="App">
             <Tabs style={{ margin: "32px" }}>
                 <TabList>
-                    <Tab>CSP</Tab>
-                    <Tab>Pop-up</Tab>
+                    <Tab>Option1: iFrame</Tab>
+                    <Tab>Option2: Pop-up</Tab>
                 </TabList>
 
                 <TabPanel style={{ padding: 20 }}>
-                    <p>iFrame URL</p>
+                    <p><a rel="noreferrer" target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options'>X-Frame-Options</a> header don't have enough directive to allowing/blocking origins</p>
+                    <p>Using header: <a rel="noreferrer" target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy'>
+                        Content-Security-Policy </a><br/>
+                        <pre>Content-Security-Policy: frame-ancestors https://thor-demo-saleforce.herokuapp.com</pre>
+                    </p>
                     <form onSubmit={(e) => {
                         e.preventDefault()
                         setSrc(url)
                     }}
                     >
+                        <label>iFrame URL </label>
                         <input style={{ fontSize: "1rem", marginBottom: "16px" }} width={400} height={80} name="url" value={url} type="text" onChange={handleOnChange} />
                     </form>
                     <iframe width={1280} height={480} title="iframe" src={src} />
